@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
 
 export function Contact() {
+  const quoteEmail = "hello@shutters.lk";
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -18,9 +19,23 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = `Quote Request from ${form.name}`;
+    const body = [
+      "New quote request",
+      "",
+      `Name: ${form.name}`,
+      `Email: ${form.email}`,
+      `Phone: ${form.phone || "Not provided"}`,
+      `Service: ${form.service || "Not selected"}`,
+      "",
+      "Message:",
+      form.message,
+    ].join("\n");
+
+    window.location.href = `mailto:${quoteEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
     setForm({ name: "", email: "", phone: "", service: "", message: "" });
-    setTimeout(() => setSent(false), 5000);
+    setTimeout(() => setSent(false), 7000);
   };
 
   const inputStyle: React.CSSProperties = {
@@ -223,7 +238,7 @@ export function Contact() {
                     textTransform: "uppercase",
                   }}
                 >
-                  Message Sent!
+                  Email Draft Opened
                 </h3>
                 <p
                   className="mt-3"
@@ -233,7 +248,7 @@ export function Contact() {
                     fontSize: "15px",
                   }}
                 >
-                  Thank you for reaching out. We'll get back to you within 24 hours.
+                  Please send the prepared email from your mail app. We'll get back to you within 24 hours.
                 </p>
               </div>
             ) : (
@@ -381,7 +396,7 @@ export function Contact() {
                   }}
                 >
                   <Send size={16} />
-                  SEND MESSAGE
+                  GET A QUOTE
                 </button>
               </form>
             )}
