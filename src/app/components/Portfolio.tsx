@@ -3,71 +3,143 @@ import { motion, AnimatePresence } from "motion/react";
 import { Play } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-const categories = ["All", "Film", "Events", "Music", "Commercial"];
+const categories = ["Music Videos", "Live Sessions", "Events"];
 
 const projects = [
   {
     id: 1,
-    title: "Resonance",
-    category: "Music",
+    title: "Music Video 01",
+    category: "Music Videos",
     tag: "Music Video",
-    img: "https://images.unsplash.com/photo-1499364615650-ec38552f4f34?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxjb25jZXJ0JTIwZXZlbnQlMjBwaG90b2dyYXBoeSUyMGxpdmUlMjBwZXJmb3JtYW5jZSUyMHN0YWdlJTIwbGlnaHRzfGVufDF8fHx8MTc3ODk1NTMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    url: "https://www.youtube.com/watch?v=lhdVCGHgEl8",
+    img: "https://i.ytimg.com/vi/lhdVCGHgEl8/hqdefault.jpg",
   },
   {
     id: 2,
-    title: "Behind the Lens",
-    category: "Film",
-    tag: "Short Film",
-    img: "https://images.unsplash.com/photo-1577190651915-bf62d54d5b36?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw1fHxmaWxtJTIwcHJvZHVjdGlvbiUyMGNpbmVtYXRpYyUyMGNhbWVyYSUyMGNyZXd8ZW58MXx8fHwxNzc4OTU1MzI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 02",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=gLQonL-UsV8",
+    img: "https://i.ytimg.com/vi/gLQonL-UsV8/hqdefault.jpg",
   },
   {
     id: 3,
-    title: "Neon Nights",
-    category: "Events",
-    tag: "Event Coverage",
-    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwZXZlbnQlMjBwaG90b2dyYXBoeSUyMGxpdmUlMjBwZXJmb3JtYW5jZSUyMHN0YWdlJTIwbGlnaHRzfGVufDF8fHx8MTc3ODk1NTMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 03",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=WiMahEL-guE",
+    img: "https://i.ytimg.com/vi/WiMahEL-guE/hqdefault.jpg",
   },
   {
     id: 4,
-    title: "On Set",
-    category: "Film",
-    tag: "BTS Documentary",
-    img: "https://images.unsplash.com/photo-1632187989763-c9c620420b4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxmaWxtJTIwcHJvZHVjdGlvbiUyMGNpbmVtYXRpYyUyMGNhbWVyYSUyMGNyZXd8ZW58MXx8fHwxNzc4OTU1MzI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 04",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=mqz-0KJ73sY",
+    img: "https://i.ytimg.com/vi/mqz-0KJ73sY/hqdefault.jpg",
   },
   {
     id: 5,
-    title: "Live Sessions",
-    category: "Events",
-    tag: "Concert Film",
-    img: "https://images.unsplash.com/photo-1583795484071-3c453e3a7c71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxjb25jZXJ0JTIwZXZlbnQlMjBwaG90b2dyYXBoeSUyMGxpdmUlMjBwZXJmb3JtYW5jZSUyMHN0YWdlJTIwbGlnaHRzfGVufDF8fHx8MTc3ODk1NTMzM3ww&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 05",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=O0Qy1guUUks",
+    img: "https://i.ytimg.com/vi/O0Qy1guUUks/hqdefault.jpg",
   },
   {
     id: 6,
-    title: "Frame by Frame",
-    category: "Commercial",
-    tag: "Brand Story",
-    img: "https://images.unsplash.com/photo-1515634928627-2a4e0dae3ddf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxmaWxtJTIwcHJvZHVjdGlvbiUyMGNpbmVtYXRpYyUyMGNhbWVyYSUyMGNyZXd8ZW58MXx8fHwxNzc4OTU1MzI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 06",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=Jah9F0Scz6o",
+    img: "https://i.ytimg.com/vi/Jah9F0Scz6o/hqdefault.jpg",
   },
   {
     id: 7,
-    title: "In Motion",
-    category: "Commercial",
-    tag: "Corporate Film",
-    img: "https://images.unsplash.com/photo-1629756048377-09540f52caa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwdmlkZW9ncmFwaHklMjBmaWxtaW5nJTIwY291cGxlfGVufDF8fHx8MTc3ODk1NTMzNHww&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 07",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=N4mcobl1c0E",
+    img: "https://i.ytimg.com/vi/N4mcobl1c0E/hqdefault.jpg",
   },
   {
     id: 8,
-    title: "The Stage",
-    category: "Music",
-    tag: "Live Performance",
-    img: "https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaWxtJTIwcHJvZHVjdGlvbiUyMGNpbmVtYXRpYyUyMGNhbWVyYSUyMGNyZXd8ZW58MXx8fHwxNzc4OTU1MzI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+    title: "Music Video 08",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=267Muebhvqk",
+    img: "https://i.ytimg.com/vi/267Muebhvqk/hqdefault.jpg",
+  },
+  {
+    id: 9,
+    title: "Music Video 09",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=KXCvE1EG2EM",
+    img: "https://i.ytimg.com/vi/KXCvE1EG2EM/hqdefault.jpg",
+  },
+  {
+    id: 10,
+    title: "Music Video 10",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=Dm8zMF_e0SM",
+    img: "https://i.ytimg.com/vi/Dm8zMF_e0SM/hqdefault.jpg",
+  },
+  {
+    id: 11,
+    title: "Music Video 11",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=E7KGvAVdlZ8",
+    img: "https://i.ytimg.com/vi/E7KGvAVdlZ8/hqdefault.jpg",
+  },
+  {
+    id: 12,
+    title: "Music Video 12",
+    category: "Music Videos",
+    tag: "Music Video",
+    url: "https://www.youtube.com/watch?v=DZJsomBpcBI",
+    img: "https://i.ytimg.com/vi/DZJsomBpcBI/hqdefault.jpg",
+  },
+  {
+    id: 13,
+    title: "Live Sessions 01",
+    category: "Live Sessions",
+    tag: "Playlist",
+    url: "https://www.youtube.com/playlist?list=PLXTyIKabLaztaTeI-O4ihytqiSjmEkjiq",
+    img: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
+  {
+    id: 14,
+    title: "Live Sessions 02",
+    category: "Live Sessions",
+    tag: "Playlist",
+    url: "https://www.youtube.com/playlist?list=PLpaYN9p0v1NqUVDbb0khEP6McWMUNVWZT",
+    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
+  {
+    id: 15,
+    title: "Live Sessions 03",
+    category: "Live Sessions",
+    tag: "Playlist",
+    url: "https://www.youtube.com/playlist?list=PLIQDowoy-A6v2-VF204HVgqiHyxz_faMi",
+    img: "https://images.unsplash.com/photo-1501612780327-45045538702b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+  },
+  {
+    id: 16,
+    title: "Aalakatha",
+    category: "Events",
+    tag: "Event",
+    url: "https://aalakatha.lk/",
+    img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
 ];
 
 export function Portfolio() {
-  const [active, setActive] = useState("All");
+  const [active, setActive] = useState(categories[0]);
 
-  const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
+  const filtered = projects.filter((p) => p.category === active);
 
   return (
     <section
@@ -141,14 +213,17 @@ export function Portfolio() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <AnimatePresence mode="popLayout">
             {filtered.map((project) => (
-              <motion.div
+              <motion.a
                 key={project.id}
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
                 layout
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.35 }}
-                className="group relative overflow-hidden cursor-pointer"
+                className="group relative overflow-hidden cursor-pointer block"
                 style={{ borderRadius: "2px", aspectRatio: "3/4" }}
               >
                 <ImageWithFallback
@@ -208,7 +283,7 @@ export function Portfolio() {
                 >
                   {project.tag}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </AnimatePresence>
         </div>
