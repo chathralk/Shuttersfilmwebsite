@@ -105,7 +105,7 @@ export function Contact() {
               {
                 icon: MapPin,
                 title: "Our Location",
-                lines: ["Colombo, Sri Lanka"],
+                lines: ["52/1, Galwalawatta Road, Bombuwala, Kalutara"],
               },
               {
                 icon: Mail,
@@ -115,7 +115,7 @@ export function Contact() {
               {
                 icon: Phone,
                 title: "Call Us",
-                lines: ["+94 77 000 0000"],
+                lines: ["+94 710494646"],
               },
             ].map((item) => (
               <div key={item.title} className="flex items-start gap-5">
@@ -307,7 +307,7 @@ export function Contact() {
                       name="phone"
                       value={form.phone}
                       onChange={handleChange}
-                      placeholder="+94 77 000 0000"
+                      placeholder="+94 710494646"
                       style={inputStyle}
                     />
                   </div>

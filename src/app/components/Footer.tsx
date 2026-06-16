@@ -226,9 +226,9 @@ export function Footer() {
             </div>
             <div className="space-y-3">
               {[
-                { label: "Location", val: "Colombo, Sri Lanka" },
+                { label: "Location", val: "52/1, Galwalawatta Road, Bombuwala, Kalutara" },
                 { label: "Email", val: "hello@shutters.lk" },
-                { label: "Phone", val: "+94 77 000 0000" },
+                { label: "Phone", val: "+94 710494646" },
               ].map((c) => (
                 <div key={c.label}>
                   <div
