@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Play } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-const categories = ["Music Videos", "Live Sessions", "Events"];
+const categories = ["All", "Music Videos", "Live Sessions", "Events"];
 
 const projects = [
   {
@@ -139,7 +139,7 @@ const projects = [
 export function Portfolio() {
   const [active, setActive] = useState(categories[0]);
 
-  const filtered = projects.filter((p) => p.category === active);
+  const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
 
   return (
     <section
