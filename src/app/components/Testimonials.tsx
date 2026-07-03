@@ -40,7 +40,7 @@ const testimonials = [
     name: "Abhisheka Wimalaweera",
     role: "Vocal Artist",
     quote:
-      "The team handled the shoot with patience, respect, and a strong eye for emotion. Their framing and editing supported the story of the song without overpowering it, which made the final output feel very personal.",
+      "We have a lot of great work ahead of us in the future. To be completely honest, I have worked with many professionals before, but you are the very first team to deliver such high-quality work in such a short timeframe for the price paid. You truly have a long and successful journey ahead! For our next project, let’s sit down and plan everything well in advance. The more we plan, the more beautiful the final outcome becomes. Let's collaborate again soon. Thank you so much—you have done a great job!",
     initials: "AW",
   },
   {
