@@ -5,35 +5,67 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 const testimonials = [
   {
     id: 1,
-    name: "Kasun Perera",
-    role: "CEO, TechSpark Lanka",
+    name: "Wathila Manakamal",
+    role: "Managing Director, Hilight Events",
     quote:
-      "Shutters Films delivered a corporate brand video that completely exceeded our expectations. The team's attention to detail and creative vision elevated our brand story to a whole new level.",
-    initials: "KP",
+      "For live events, timing and trust matter more than anything. Shutters Films understood the energy of the show, moved professionally with our crew, and delivered visuals that helped us present Hilight Events at a much higher standard.",
+    initials: "WM",
   },
   {
     id: 2,
-    name: "Nadeeka Silva",
-    role: "Event Organiser, Vibe Events",
+    name: "Tharindu Wadduwage",
+    role: "Musician & Song Writer",
     quote:
-      "We hired Shutters Films to cover our annual music festival and the result was absolutely stunning. They captured every moment with such artistry — our clients were blown away by the final cut.",
-    initials: "NS",
+      "They do not just record a performance; they listen to the song first. The visuals, pacing, and colour choices felt connected to the emotion of the music, which is exactly what an artist needs from a film team.",
+    initials: "TW",
   },
   {
     id: 3,
-    name: "Tharaka Bandara",
-    role: "Recording Artist",
+    name: "Sachee Maduranga",
+    role: "Musician",
     quote:
-      "Working with Shutters Films on my music video was an incredible experience. The cinematic quality, the lighting, the colour grade — everything was world-class. Highly recommend them!",
-    initials: "TB",
+      "Working with Shutters Films was smooth from the first discussion to the final edit. They gave clear direction on set, captured natural moments, and kept the final video honest to my style as a musician.",
+    initials: "SM",
   },
   {
     id: 4,
-    name: "Dilini Fernando",
-    role: "Marketing Director, HarvestCo",
+    name: "Suneera Sumanga",
+    role: "Vocal Artist",
     quote:
-      "Our TV commercial produced by Shutters Films drove a significant uptick in brand recognition. They understood our brief perfectly and delivered on time without compromising quality.",
-    initials: "DF",
+      "A vocal performance has small expressions that can easily be missed. Shutters Films paid attention to those details and created a final video that felt intimate, polished, and true to the performance.",
+    initials: "SS",
+  },
+  {
+    id: 5,
+    name: "Abhisheka Wimalaweera",
+    role: "Vocal Artist",
+    quote:
+      "The team handled the shoot with patience, respect, and a strong eye for emotion. Their framing and editing supported the story of the song without overpowering it, which made the final output feel very personal.",
+    initials: "AW",
+  },
+  {
+    id: 6,
+    name: "WTF? (Where They From?)",
+    role: "Musical Band",
+    quote:
+      "Band shoots need a team that can capture chemistry, movement, and stage presence at the same time. Shutters Films gave us that balance, with strong live energy and clean cinematic production.",
+    initials: "WTF",
+  },
+  {
+    id: 7,
+    name: "Tharindu Nirmana",
+    role: "Artist & Leader of Knights Band",
+    quote:
+      "Shutters Films understood both the artist side and the band side of the project. They were organized on location, easy to work with, and the final visuals carried the attitude and identity we wanted.",
+    initials: "TN",
+  },
+  {
+    id: 8,
+    name: "Sithum Abhishek",
+    role: "Musician & Mixing Mastering Engineer",
+    quote:
+      "As someone who works closely with sound, I appreciate when visuals respect the rhythm and dynamics of a track. Shutters Films edited with that musical sense, and the final video felt tight, clean, and professional.",
+    initials: "SA",
   },
 ];
 
