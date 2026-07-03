@@ -4,6 +4,22 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 const testimonials = [
   {
+    id: 5,
+    name: "Abhisheka Wimalaweera",
+    role: "Vocal Artist",
+    quote:
+      "We have a lot of great work ahead of us in the future. To be completely honest, I have worked with many professionals before, but you are the very first team to deliver such high-quality work in such a short timeframe for the price paid. You truly have a long and successful journey ahead! For our next project, let’s sit down and plan everything well in advance. The more we plan, the more beautiful the final outcome becomes. Let's collaborate again soon. Thank you so much—you have done a great job!",
+    initials: "AW",
+  },
+  {
+    id: 4,
+    name: "Suneera Sumanga",
+    role: "Vocal Artist",
+    quote:
+      "A vocal performance has small expressions that can easily be missed. Shutters Films paid attention to those details and created a final video that felt intimate, polished, and true to the performance.",
+    initials: "SS",
+  },
+  {
     id: 1,
     name: "Wathila Manakamal",
     role: "Managing Director, Hilight Events",
@@ -26,22 +42,6 @@ const testimonials = [
     quote:
       "Working with Shutters Films was smooth from the first discussion to the final edit. They gave clear direction on set, captured natural moments, and kept the final video honest to my style as a musician.",
     initials: "SM",
-  },
-  {
-    id: 4,
-    name: "Suneera Sumanga",
-    role: "Vocal Artist",
-    quote:
-      "A vocal performance has small expressions that can easily be missed. Shutters Films paid attention to those details and created a final video that felt intimate, polished, and true to the performance.",
-    initials: "SS",
-  },
-  {
-    id: 5,
-    name: "Abhisheka Wimalaweera",
-    role: "Vocal Artist",
-    quote:
-      "We have a lot of great work ahead of us in the future. To be completely honest, I have worked with many professionals before, but you are the very first team to deliver such high-quality work in such a short timeframe for the price paid. You truly have a long and successful journey ahead! For our next project, let’s sit down and plan everything well in advance. The more we plan, the more beautiful the final outcome becomes. Let's collaborate again soon. Thank you so much—you have done a great job!",
-    initials: "AW",
   },
   {
     id: 6,
