@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import shuttersLogo from "../../imports/logo_new.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -39,32 +40,14 @@ export function Navbar() {
           {/* Logo */}
           <button
             onClick={() => handleNavClick("#home")}
-            className="flex items-center gap-0 relative"
-            style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
+            className="relative flex h-14 w-32 items-center"
+            aria-label="Go to home"
           >
-            <div className="relative">
-              <div
-                className="absolute"
-                style={{
-                  width: "42px",
-                  height: "42px",
-                  borderRadius: "50%",
-                  backgroundColor: "#F5A500",
-                  right: "-12px",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  zIndex: 0,
-                }}
-              />
-              <div className="relative z-10 pr-3">
-                <div style={{ color: "#fff", fontSize: "15px", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em" }}>
-                  SHUTTERS
-                </div>
-                <div style={{ color: "#fff", fontSize: "15px", fontWeight: 900, lineHeight: 1, letterSpacing: "-0.02em" }}>
-                  FILMS<span style={{ color: "#F5A500" }}>.</span>
-                </div>
-              </div>
-            </div>
+            <img
+              src={shuttersLogo}
+              alt="Shutters Films"
+              className="block h-14 w-32 object-contain"
+            />
           </button>
 
           {/* Desktop Links */}

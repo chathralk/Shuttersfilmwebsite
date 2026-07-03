@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import shuttersLogo from "../../imports/logo_new.png";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -80,34 +81,11 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             {/* Logo */}
-            <div
-              className="relative inline-flex items-center mb-6"
-              style={{ fontFamily: "'Barlow Condensed', sans-serif" }}
-            >
-              <div className="relative">
-                <div
-                  className="absolute"
-                  style={{
-                    width: "42px",
-                    height: "42px",
-                    borderRadius: "50%",
-                    backgroundColor: "#F5A500",
-                    right: "-10px",
-                    top: "50%",
-                    transform: "translateY(-50%)",
-                    zIndex: 0,
-                  }}
-                />
-                <div className="relative z-10 pr-3">
-                  <div style={{ color: "#fff", fontSize: "17px", fontWeight: 900, lineHeight: 1 }}>
-                    SHUTTERS
-                  </div>
-                  <div style={{ color: "#fff", fontSize: "17px", fontWeight: 900, lineHeight: 1 }}>
-                    FILMS<span style={{ color: "#F5A500" }}>.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <img
+              src={shuttersLogo}
+              alt="Shutters Films"
+              className="mb-6 block h-20 w-36 object-contain"
+            />
 
             <p
               style={{
