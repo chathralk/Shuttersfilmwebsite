@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { MapPin, Mail, Phone, Send } from "lucide-react";
 
 export function Contact() {
-  const quoteEmail = "hello@shutters.lk";
+  const quoteEmail = "info@shutters.lk";
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -125,7 +125,7 @@ export function Contact() {
               {
                 icon: Mail,
                 title: "Email Us",
-                lines: ["hello@shutters.lk"],
+                lines: ["info@shutters.lk"],
               },
               {
                 icon: Phone,

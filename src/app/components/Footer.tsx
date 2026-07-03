@@ -227,7 +227,7 @@ export function Footer() {
             <div className="space-y-3">
               {[
                 { label: "Location", val: "52/1, Galwalawatta Road, Bombuwala, Kalutara" },
-                { label: "Email", val: "hello@shutters.lk" },
+                { label: "Email", val: "info@shutters.lk" },
                 { label: "Phone", val: "+94 710494646" },
               ].map((c) => (
                 <div key={c.label}>
