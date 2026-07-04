@@ -35,10 +35,8 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Prepare Pages artifact
-        run: |
-          touch dist/.nojekyll
-          if [ -f CNAME ]; then cp CNAME dist/CNAME; fi
+      - name: Verify Pages artifact
+        run: npm run verify:pages
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -46,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs
 
   deploy:
     environment:

@@ -18,6 +18,10 @@
   3. Set **Build and deployment > Source** to **GitHub Actions**.
   4. Push to `main`, or run the **Deploy to GitHub Pages** workflow manually.
 
+  If you prefer GitHub's **Deploy from a branch** setting instead, set the folder
+  to `/docs` on `main`. The `npm run build` command writes the production site
+  there, including `CNAME` and `.nojekyll`.
+
   The build uses relative asset paths, so it works both on a project Pages URL like
   `https://USERNAME.github.io/REPOSITORY/` and on the custom domain in `CNAME`.
   
