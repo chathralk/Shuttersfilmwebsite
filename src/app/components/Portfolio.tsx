@@ -1,17 +1,38 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { Play } from "lucide-react";
+import { AnimatePresence, motion } from "motion/react";
+import { ExternalLink, Play } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-const categories = ["All", "Music Videos", "Live Sessions", "Events"];
+const categories = ["All", "Music Videos", "Live Sessions", "Events"] as const;
 
-const projects = [
+type Category = (typeof categories)[number];
+type YouTubeCategory = Exclude<Category, "All" | "Events">;
+
+type YouTubeProject = {
+  id: number;
+  title: string;
+  category: YouTubeCategory;
+  tag: "Music Video" | "Playlist";
+  embedUrl: string;
+  img: string;
+};
+
+type EventProject = {
+  id: number;
+  title: string;
+  tag: "Event";
+  url: string;
+  img: string;
+};
+
+const youtubeProjects: YouTubeProject[] = [
   {
     id: 1,
     title: "Music Video 01",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=lhdVCGHgEl8",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/lhdVCGHgEl8?autoplay=1",
     img: "https://i.ytimg.com/vi/lhdVCGHgEl8/hqdefault.jpg",
   },
   {
@@ -19,7 +40,8 @@ const projects = [
     title: "Music Video 02",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=gLQonL-UsV8",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/gLQonL-UsV8?autoplay=1",
     img: "https://i.ytimg.com/vi/gLQonL-UsV8/hqdefault.jpg",
   },
   {
@@ -27,7 +49,8 @@ const projects = [
     title: "Music Video 03",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=WiMahEL-guE",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/WiMahEL-guE?autoplay=1",
     img: "https://i.ytimg.com/vi/WiMahEL-guE/hqdefault.jpg",
   },
   {
@@ -35,7 +58,8 @@ const projects = [
     title: "Music Video 04",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=mqz-0KJ73sY",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/mqz-0KJ73sY?autoplay=1",
     img: "https://i.ytimg.com/vi/mqz-0KJ73sY/hqdefault.jpg",
   },
   {
@@ -43,7 +67,8 @@ const projects = [
     title: "Music Video 05",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=O0Qy1guUUks",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/O0Qy1guUUks?autoplay=1",
     img: "https://i.ytimg.com/vi/O0Qy1guUUks/hqdefault.jpg",
   },
   {
@@ -51,7 +76,8 @@ const projects = [
     title: "Music Video 06",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=Jah9F0Scz6o",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/Jah9F0Scz6o?autoplay=1",
     img: "https://i.ytimg.com/vi/Jah9F0Scz6o/hqdefault.jpg",
   },
   {
@@ -59,7 +85,8 @@ const projects = [
     title: "Music Video 07",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=N4mcobl1c0E",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/N4mcobl1c0E?autoplay=1",
     img: "https://i.ytimg.com/vi/N4mcobl1c0E/hqdefault.jpg",
   },
   {
@@ -67,7 +94,8 @@ const projects = [
     title: "Music Video 08",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=267Muebhvqk",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/267Muebhvqk?autoplay=1",
     img: "https://i.ytimg.com/vi/267Muebhvqk/hqdefault.jpg",
   },
   {
@@ -75,7 +103,8 @@ const projects = [
     title: "Music Video 09",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=KXCvE1EG2EM",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/KXCvE1EG2EM?autoplay=1",
     img: "https://i.ytimg.com/vi/KXCvE1EG2EM/hqdefault.jpg",
   },
   {
@@ -83,7 +112,8 @@ const projects = [
     title: "Music Video 10",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=Dm8zMF_e0SM",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/Dm8zMF_e0SM?autoplay=1",
     img: "https://i.ytimg.com/vi/Dm8zMF_e0SM/hqdefault.jpg",
   },
   {
@@ -91,7 +121,8 @@ const projects = [
     title: "Music Video 11",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=E7KGvAVdlZ8",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/E7KGvAVdlZ8?autoplay=1",
     img: "https://i.ytimg.com/vi/E7KGvAVdlZ8/hqdefault.jpg",
   },
   {
@@ -99,7 +130,8 @@ const projects = [
     title: "Music Video 12",
     category: "Music Videos",
     tag: "Music Video",
-    url: "https://www.youtube.com/watch?v=DZJsomBpcBI",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/DZJsomBpcBI?autoplay=1",
     img: "https://i.ytimg.com/vi/DZJsomBpcBI/hqdefault.jpg",
   },
   {
@@ -107,39 +139,77 @@ const projects = [
     title: "Live Sessions 01",
     category: "Live Sessions",
     tag: "Playlist",
-    url: "https://www.youtube.com/playlist?list=PLXTyIKabLaztaTeI-O4ihytqiSjmEkjiq",
-    img: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/videoseries?list=PLXTyIKabLaztaTeI-O4ihytqiSjmEkjiq&autoplay=1",
+    img: "https://i.ytimg.com/vi/gQJrafORmWk/hqdefault.jpg",
   },
   {
     id: 14,
     title: "Live Sessions 02",
     category: "Live Sessions",
     tag: "Playlist",
-    url: "https://www.youtube.com/playlist?list=PLpaYN9p0v1NqUVDbb0khEP6McWMUNVWZT",
-    img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/videoseries?list=PLpaYN9p0v1NqUVDbb0khEP6McWMUNVWZT&autoplay=1",
+    img: "https://i.ytimg.com/vi/VUeMSsBoJ2g/hqdefault.jpg",
   },
   {
     id: 15,
     title: "Live Sessions 03",
     category: "Live Sessions",
     tag: "Playlist",
-    url: "https://www.youtube.com/playlist?list=PLIQDowoy-A6v2-VF204HVgqiHyxz_faMi",
-    img: "https://images.unsplash.com/photo-1501612780327-45045538702b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    embedUrl:
+      "https://www.youtube-nocookie.com/embed/videoseries?list=PLIQDowoy-A6v2-VF204HVgqiHyxz_faMi&autoplay=1",
+    img: "https://i.ytimg.com/vi/UubS4bV7-o4/hqdefault.jpg",
   },
+];
+
+const eventProjects: EventProject[] = [
   {
     id: 16,
     title: "Aalakatha",
-    category: "Events",
     tag: "Event",
     url: "https://aalakatha.lk/",
     img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
   },
 ];
 
-export function Portfolio() {
-  const [active, setActive] = useState(categories[0]);
+const badgeStyle = {
+  backgroundColor: "#F5A500",
+  fontFamily: "'Barlow Condensed', sans-serif",
+  fontWeight: 700,
+  fontSize: "10px",
+  letterSpacing: "0.1em",
+  color: "#0D1128",
+  borderRadius: "2px",
+};
 
-  const filtered = active === "All" ? projects : projects.filter((p) => p.category === active);
+export function Portfolio() {
+  const [active, setActive] = useState<Category>("All");
+  const [playingProjects, setPlayingProjects] = useState<Set<number>>(
+    () => new Set(),
+  );
+
+  const filteredYouTubeProjects =
+    active === "All"
+      ? youtubeProjects
+      : active === "Events"
+        ? []
+        : youtubeProjects.filter((project) => project.category === active);
+
+  const showEvents = active === "All" || active === "Events";
+
+  const selectCategory = (category: Category) => {
+    setPlayingProjects(new Set());
+    setActive(category);
+  };
+
+  const playProject = (id: number) => {
+    setPlayingProjects((current) => {
+      const next = new Set(current);
+      next.add(id);
+      return next;
+    });
+  };
 
   return (
     <section
@@ -148,7 +218,6 @@ export function Portfolio() {
       style={{ backgroundColor: "#0D1128" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -157,7 +226,13 @@ export function Portfolio() {
           className="text-center mb-12"
         >
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div style={{ width: "32px", height: "2px", backgroundColor: "#F5A500" }} />
+            <div
+              style={{
+                width: "32px",
+                height: "2px",
+                backgroundColor: "#F5A500",
+              }}
+            />
             <span
               style={{
                 color: "#F5A500",
@@ -169,7 +244,13 @@ export function Portfolio() {
             >
               OUR WORK
             </span>
-            <div style={{ width: "32px", height: "2px", backgroundColor: "#F5A500" }} />
+            <div
+              style={{
+                width: "32px",
+                height: "2px",
+                backgroundColor: "#F5A500",
+              }}
+            />
           </div>
           <h2
             style={{
@@ -186,12 +267,12 @@ export function Portfolio() {
           </h2>
         </motion.div>
 
-        {/* Filter Tabs */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categories.map((cat) => (
+          {categories.map((category) => (
             <button
-              key={cat}
-              onClick={() => setActive(cat)}
+              key={category}
+              type="button"
+              onClick={() => selectCategory(category)}
               className="px-5 py-2 text-sm transition-all"
               style={{
                 fontFamily: "'Barlow Condensed', sans-serif",
@@ -199,94 +280,250 @@ export function Portfolio() {
                 letterSpacing: "0.08em",
                 fontSize: "14px",
                 borderRadius: "2px",
-                backgroundColor: active === cat ? "#F5A500" : "transparent",
-                color: active === cat ? "#0D1128" : "rgba(255,255,255,0.6)",
-                border: active === cat ? "1px solid #F5A500" : "1px solid rgba(255,255,255,0.15)",
+                backgroundColor: active === category ? "#F5A500" : "transparent",
+                color:
+                  active === category ? "#0D1128" : "rgba(255,255,255,0.6)",
+                border:
+                  active === category
+                    ? "1px solid #F5A500"
+                    : "1px solid rgba(255,255,255,0.15)",
               }}
             >
-              {cat}
+              {category}
             </button>
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatePresence mode="popLayout">
-            {filtered.map((project) => (
-              <motion.a
-                key={project.id}
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.35 }}
-                className="group relative overflow-hidden cursor-pointer block"
-                style={{ borderRadius: "2px", aspectRatio: "3/4" }}
-              >
-                <ImageWithFallback
-                  src={project.img}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        {filteredYouTubeProjects.length > 0 && (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <AnimatePresence mode="popLayout">
+              {filteredYouTubeProjects.map((project) => {
+                const isPlaying = playingProjects.has(project.id);
 
-                {/* Overlay */}
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center"
-                  style={{ background: "rgba(13,17,40,0.85)" }}
-                >
-                  <div
-                    className="w-14 h-14 rounded-full flex items-center justify-center mb-4"
-                    style={{ backgroundColor: "#F5A500" }}
-                  >
-                    <Play size={20} fill="#0D1128" color="#0D1128" />
-                  </div>
-                  <div
+                return (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.94 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.94 }}
+                    transition={{ duration: 0.3 }}
+                    className="relative overflow-hidden"
                     style={{
-                      fontFamily: "'Barlow Condensed', sans-serif",
-                      fontWeight: 800,
-                      fontSize: "18px",
-                      color: "#fff",
-                      textTransform: "uppercase",
-                      textAlign: "center",
+                      borderRadius: "2px",
+                      backgroundColor: "#070B1A",
+                      boxShadow: "0 12px 34px rgba(0,0,0,0.2)",
                     }}
                   >
-                    {project.title}
-                  </div>
-                  <div
-                    className="mt-1"
-                    style={{
-                      fontFamily: "'Barlow', sans-serif",
-                      fontSize: "12px",
-                      color: "#F5A500",
-                      letterSpacing: "0.1em",
-                    }}
-                  >
-                    {project.tag}
-                  </div>
-                </div>
+                    <div
+                      data-testid="portfolio-media"
+                      className="relative w-full overflow-hidden"
+                      style={{ aspectRatio: "16 / 9" }}
+                    >
+                      {isPlaying ? (
+                        <iframe
+                          src={project.embedUrl}
+                          title={`${project.title} video player`}
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                          allowFullScreen
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          className="h-full w-full border-0"
+                        />
+                      ) : (
+                        <button
+                          type="button"
+                          aria-label={`Play ${project.title}`}
+                          onClick={() => playProject(project.id)}
+                          className="group relative block h-full w-full cursor-pointer overflow-hidden text-left"
+                        >
+                          <ImageWithFallback
+                            src={project.img}
+                            alt=""
+                            loading="lazy"
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                          />
 
-                {/* Category badge */}
+                          <span
+                            className="absolute inset-0"
+                            style={{
+                              background:
+                                "linear-gradient(180deg, rgba(7,11,26,0.05) 35%, rgba(7,11,26,0.92) 100%)",
+                            }}
+                          />
+
+                          <span className="absolute inset-0 flex items-center justify-center">
+                            <span
+                              className="flex h-14 w-14 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                              style={{
+                                backgroundColor: "#F5A500",
+                                boxShadow: "0 8px 30px rgba(245,165,0,0.35)",
+                              }}
+                            >
+                              <Play
+                                size={20}
+                                fill="#0D1128"
+                                color="#0D1128"
+                              />
+                            </span>
+                          </span>
+
+                          <span
+                            className="absolute left-3 top-3 px-2 py-1"
+                            style={badgeStyle}
+                          >
+                            {project.tag}
+                          </span>
+
+                          <span className="absolute bottom-4 left-4 right-4">
+                            <span
+                              className="block text-white"
+                              style={{
+                                fontFamily: "'Barlow Condensed', sans-serif",
+                                fontWeight: 800,
+                                fontSize: "19px",
+                                lineHeight: 1.1,
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              {project.title}
+                            </span>
+                            <span
+                              className="mt-1 block"
+                              style={{
+                                fontFamily: "'Barlow', sans-serif",
+                                fontSize: "11px",
+                                color: "rgba(255,255,255,0.68)",
+                                letterSpacing: "0.08em",
+                                textTransform: "uppercase",
+                              }}
+                            >
+                              Play on this page
+                            </span>
+                          </span>
+                        </button>
+                      )}
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </AnimatePresence>
+          </div>
+        )}
+
+        <AnimatePresence>
+          {showEvents && (
+            <motion.section
+              aria-label="Events"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.35 }}
+              className={filteredYouTubeProjects.length > 0 ? "mt-16" : ""}
+            >
+              <div className="mb-6 flex items-center gap-3">
                 <div
-                  className="absolute top-3 left-3 px-2 py-1"
                   style={{
+                    width: "28px",
+                    height: "2px",
                     backgroundColor: "#F5A500",
+                  }}
+                />
+                <h3
+                  style={{
                     fontFamily: "'Barlow Condensed', sans-serif",
-                    fontWeight: 700,
-                    fontSize: "10px",
-                    letterSpacing: "0.1em",
-                    color: "#0D1128",
-                    borderRadius: "2px",
+                    fontWeight: 800,
+                    fontSize: "26px",
+                    color: "#fff",
+                    letterSpacing: "0.02em",
+                    textTransform: "uppercase",
                   }}
                 >
-                  {project.tag}
-                </div>
-              </motion.a>
-            ))}
-          </AnimatePresence>
-        </div>
+                  Events
+                </h3>
+              </div>
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {eventProjects.map((event) => (
+                  <a
+                    key={event.id}
+                    href={event.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Visit ${event.title} event website`}
+                    className="group relative block overflow-hidden"
+                    style={{
+                      borderRadius: "2px",
+                      boxShadow: "0 12px 34px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    <div
+                      data-testid="portfolio-media"
+                      className="relative w-full overflow-hidden"
+                      style={{ aspectRatio: "16 / 9" }}
+                    >
+                      <ImageWithFallback
+                        src={event.img}
+                        alt=""
+                        loading="lazy"
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+
+                      <span
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            "linear-gradient(180deg, rgba(7,11,26,0.08) 25%, rgba(7,11,26,0.94) 100%)",
+                        }}
+                      />
+
+                      <span
+                        className="absolute left-3 top-3 px-2 py-1"
+                        style={badgeStyle}
+                      >
+                        {event.tag}
+                      </span>
+
+                      <span className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-4">
+                        <span>
+                          <span
+                            className="block text-white"
+                            style={{
+                              fontFamily: "'Barlow Condensed', sans-serif",
+                              fontWeight: 800,
+                              fontSize: "21px",
+                              lineHeight: 1.1,
+                              textTransform: "uppercase",
+                            }}
+                          >
+                            {event.title}
+                          </span>
+                          <span
+                            className="mt-1 block"
+                            style={{
+                              fontFamily: "'Barlow', sans-serif",
+                              fontSize: "11px",
+                              color: "rgba(255,255,255,0.68)",
+                              letterSpacing: "0.08em",
+                              textTransform: "uppercase",
+                            }}
+                          >
+                            Visit event website
+                          </span>
+                        </span>
+                        <span
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110"
+                          style={{ backgroundColor: "#F5A500" }}
+                        >
+                          <ExternalLink size={17} color="#0D1128" />
+                        </span>
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </motion.section>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
