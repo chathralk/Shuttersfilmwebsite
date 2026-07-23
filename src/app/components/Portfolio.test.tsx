@@ -40,10 +40,16 @@ describe("Portfolio", () => {
     render(<Portfolio />);
 
     fireEvent.click(
-      screen.getByRole("button", { name: "Play Music Video 01" }),
+      screen.getByRole("button", {
+        name: "Play Mihiran - Shawty (Official Music Video)",
+      }),
     );
 
-    expect(screen.getByTitle("Music Video 01 video player")).toHaveAttribute(
+    expect(
+      screen.getByTitle(
+        "Mihiran - Shawty (Official Music Video) video player",
+      ),
+    ).toHaveAttribute(
       "src",
       "https://www.youtube-nocookie.com/embed/lhdVCGHgEl8?autoplay=1",
     );
@@ -53,13 +59,32 @@ describe("Portfolio", () => {
     render(<Portfolio />);
 
     fireEvent.click(
-      screen.getByRole("button", { name: "Play Live Sessions 01" }),
+      screen.getByRole("button", {
+        name: "Play Liyathambara Live In Concert 2022 (Popular Hits)",
+      }),
     );
 
-    expect(screen.getByTitle("Live Sessions 01 video player")).toHaveAttribute(
+    expect(
+      screen.getByTitle(
+        "Liyathambara Live In Concert 2022 (Popular Hits) video player",
+      ),
+    ).toHaveAttribute(
       "src",
       "https://www.youtube-nocookie.com/embed/videoseries?list=PLXTyIKabLaztaTeI-O4ihytqiSjmEkjiq&autoplay=1",
     );
+  });
+
+  it("uses official titles instead of numbered placeholder names", () => {
+    render(<Portfolio />);
+
+    const playButtons = screen.getAllByRole("button", { name: /^Play / });
+
+    expect(playButtons).toHaveLength(15);
+    playButtons.forEach((button) => {
+      expect(button).not.toHaveAccessibleName(
+        /Play (Music Video|Live Sessions) \d+/,
+      );
+    });
   });
 
   it("keeps the external event in a separate events area", () => {

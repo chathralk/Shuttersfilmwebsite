@@ -28,7 +28,7 @@ type EventProject = {
 const youtubeProjects: YouTubeProject[] = [
   {
     id: 1,
-    title: "Music Video 01",
+    title: "Mihiran - Shawty (Official Music Video)",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -37,7 +37,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 2,
-    title: "Music Video 02",
+    title: "Mathrubumiyai (මාතෘ භූමියයි) Srilanka - Knights",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -46,7 +46,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 3,
-    title: "Music Video 03",
+    title: "Ma Hade | මා හදේ [Official Music Video] | Heli Wijerathne",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -55,7 +55,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 4,
-    title: "Music Video 04",
+    title: "Munbe Va x Viramayak | Mashup Cover – Madara Prabhashinie",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -64,7 +64,8 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 5,
-    title: "Music Video 05",
+    title:
+      "Awasanayak Nathi (අවසානයක් නැති) | Official Visualizer | Nipuna Jayakody",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -73,7 +74,8 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 6,
-    title: "Music Video 06",
+    title:
+      "Seema Maim (සීමා මායිම්) | Tharindu Wadduwage | Highmonkey Session",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -82,7 +84,8 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 7,
-    title: "Music Video 07",
+    title:
+      "Epa Sande (එපා සඳේ) - Kavinda Gimhana, Sugath Hettiarachchi | Cover Version",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -91,7 +94,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 8,
-    title: "Music Video 08",
+    title: "Vida Karo - Cover Version | Suneera Sumanga | Ayesha Jayalath",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -100,7 +103,8 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 9,
-    title: "Music Video 09",
+    title:
+      "Kandulu Wehilihini | කඳුලු වැහිලිහිණි | Dr. Nanda Malini X Suneera Sumanga | Aruna Gunawardana",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -109,7 +113,8 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 10,
-    title: "Music Video 10",
+    title:
+      "Dineka Apitath Weradila Athi | දිනෙක අපිටත් වැරදිලා ඇති by Suneera Sumanga X Vajira Suminda",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -118,7 +123,8 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 11,
-    title: "Music Video 11",
+    title:
+      "Sithum Geethadeva, @tharinduwadduwage - Thodu (තෝඩු) Official Music Video",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -127,7 +133,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 12,
-    title: "Music Video 12",
+    title: "Ne-Yo - So Sick X One In A Million (WTF Cover)",
     category: "Music Videos",
     tag: "Music Video",
     embedUrl:
@@ -136,7 +142,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 13,
-    title: "Live Sessions 01",
+    title: "Liyathambara Live In Concert 2022 (Popular Hits)",
     category: "Live Sessions",
     tag: "Playlist",
     embedUrl:
@@ -145,7 +151,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 14,
-    title: "Live Sessions 02",
+    title: "Christmas at the Yard",
     category: "Live Sessions",
     tag: "Playlist",
     embedUrl:
@@ -154,7 +160,7 @@ const youtubeProjects: YouTubeProject[] = [
   },
   {
     id: 15,
-    title: "Live Sessions 03",
+    title: "Knights Isthale",
     category: "Live Sessions",
     tag: "Playlist",
     embedUrl:
