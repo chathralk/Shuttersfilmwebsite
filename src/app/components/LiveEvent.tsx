@@ -1,7 +1,7 @@
 import { ArrowDown, ExternalLink } from "lucide-react";
 
 const videoUrl = "https://www.facebook.com/shutterslk/videos/1106288448476803/";
-const embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(videoUrl)}&show_text=false&width=1280&autoplay=true&mute=true`;
+const embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(videoUrl)}&show_text=false&width=560`;
 
 export function LiveEvent() {
   return (
@@ -23,7 +23,7 @@ export function LiveEvent() {
           බෝඹුවල මහා පෙරහැර 2026
         </h1>
         <p className="mb-6 mt-3 text-base text-white/70">
-          Watch the event live, right here. Turn on sound in the player to enjoy the broadcast.
+          Watch the event live, right here. If playback won’t start on your phone, watch on Facebook below.
         </p>
         <div className="aspect-video overflow-hidden rounded-lg border border-white/15 bg-black shadow-2xl">
           <iframe
@@ -49,7 +49,7 @@ export function LiveEvent() {
           </a>
         </div>
         <p className="mt-3 text-sm text-white/50">
-          If the player doesn’t load, use “Watch on Facebook” to join the broadcast.
+          Using an iPhone? If tapping play doesn’t start the video, “Watch on Facebook” opens the broadcast directly.
         </p>
       </div>
     </section>
