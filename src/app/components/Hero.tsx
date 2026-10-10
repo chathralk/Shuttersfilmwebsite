@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section
-      id="home"
+      id="intro"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{ backgroundColor: "#0D1128" }}
     >
