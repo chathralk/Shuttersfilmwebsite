@@ -7,6 +7,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "Live Events", href: "#live-events" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -51,7 +52,7 @@ export function Navbar() {
           </button>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -80,7 +81,7 @@ export function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden text-white p-2"
+            className="lg:hidden text-white p-2"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -92,7 +93,7 @@ export function Navbar() {
       {menuOpen && (
         <div
           style={{ backgroundColor: "#0D1128" }}
-          className="md:hidden border-t border-white/10"
+          className="lg:hidden border-t border-white/10"
         >
           <div className="px-4 py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
