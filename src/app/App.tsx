@@ -1,6 +1,6 @@
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { LiveEvent, LiveEvents } from "./components/LiveEvent";
+import { LiveEvents } from "./components/LiveEvent";
 import { Stats } from "./components/Stats";
 import { About } from "./components/About";
 import { Services } from "./components/Services";
@@ -20,7 +20,6 @@ export default function App() {
       }}
     >
       <Navbar />
-      <LiveEvent />
       <Hero />
       <Stats />
       <About />
